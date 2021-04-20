@@ -56,15 +56,17 @@ def read_bci_data() -> tuple[DataLoader, DataLoader]:
 def show(history: dict[str, list]) -> None:
     plt.title('Train')
 
-    plt.plot(history['loss'])
-    plt.plot(history['accuracy'])
+    plt.plot(history['loss'], label='loss')
+    plt.plot(history['accuracy'], label='accuracy')
 
+    plt.legend()
     plt.show()
 
     if ('val_loss' in history) and ('val_accuracy' in history):
         plt.title('Valid')
 
-        plt.plot(history['val_loss'])
-        plt.plot(history['val_accuracy'])
+        plt.plot(history['val_loss'], label='loss')
+        plt.plot(history['val_accuracy'], label='accuracy')
 
+        plt.legend()
         plt.show()
