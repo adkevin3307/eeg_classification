@@ -3,7 +3,7 @@ import torch.nn as nn
 
 
 class EEGNet(nn.Module):
-    def __init__(self, activation):
+    def __init__(self, activation: str) -> None:
         super(EEGNet, self).__init__()
 
         _activation = None
@@ -39,7 +39,7 @@ class EEGNet(nn.Module):
             nn.Linear(in_features=736, out_features=2)
         )
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.first_conv(x)
         x = self.depthwise_conv(x)
         x = self.separable_conv(x)
@@ -50,7 +50,7 @@ class EEGNet(nn.Module):
 
 
 class DeepConvNet(nn.Module):
-    def __init__(self, activation):
+    def __init__(self, activation: str) -> None:
         super(DeepConvNet, self).__init__()
 
         _activation = None
@@ -101,7 +101,7 @@ class DeepConvNet(nn.Module):
             nn.Linear(in_features=8600, out_features=2)
         )
 
-    def forward(self, x):
+    def forward(self, x: torch.Tensor) -> torch.Tensor:
         x = self.first_conv(x)
         x = self.deep_conv_1(x)
         x = self.deep_conv_2(x)
