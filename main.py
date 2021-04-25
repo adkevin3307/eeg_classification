@@ -29,7 +29,11 @@ if __name__ == '__main__':
     model = Model(net, criterion=criterion, optimizer=optimizer)
     model.summary((1, 1, 2, 750))
 
-    history = model.train(train_loader, epochs=150, val_loader=test_loader)
+    history = model.train(train_loader, epochs=300, val_loader=test_loader)
     model.test(test_loader)
+
+    with open(args.net + '_' + args.activation + '.txt', 'w') as txt_file:
+        print(history['accuracy'], file=txt_file)
+        print(history['val_accuracy'], file=txt_file)
 
     show(history)

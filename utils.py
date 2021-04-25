@@ -7,8 +7,8 @@ import matplotlib.pyplot as plt
 
 def parse() -> argparse.Namespace:
     parser = argparse.ArgumentParser()
-    parser.add_argument('-n', '--net', type=str, default='EEG')
-    parser.add_argument('-a', '--activation', type=str, default='ReLU')
+    parser.add_argument('-n', '--net', type=str, default='EEG', help='EEG|DeepConv')
+    parser.add_argument('-a', '--activation', type=str, default='ReLU', help='ReLU|LeakyReLU|ELU')
     args = parser.parse_args()
 
     return args
