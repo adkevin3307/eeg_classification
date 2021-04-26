@@ -24,7 +24,7 @@ if __name__ == '__main__':
         net = DeepConvNet(args.activation)
 
     criterion = nn.CrossEntropyLoss()
-    optimizer = optim.Adam(net.parameters(), lr=1e-2)
+    optimizer = optim.Adam(net.parameters(), lr=1e-3)
 
     model = Model(net, criterion=criterion, optimizer=optimizer)
     model.summary((1, 1, 2, 750))

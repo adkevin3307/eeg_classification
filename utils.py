@@ -11,6 +11,8 @@ def parse() -> argparse.Namespace:
     parser.add_argument('-a', '--activation', type=str, default='ReLU', help='ReLU|LeakyReLU|ELU')
     args = parser.parse_args()
 
+    print(args)
+
     return args
 
 
